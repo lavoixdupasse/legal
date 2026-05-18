@@ -4,124 +4,255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — SUBTERRA PROJECT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    max-width: 760px;
-    margin: 2em auto;
-    padding: 0 1.5em;
-    line-height: 1.6;
-    color: #1a1a1a;
-    background: #fafafa;
+  :root {
+    --bg: #0e0d0b;
+    --bg-soft: #18161300;
+    --text: #d7cdb8;
+    --text-dim: #8a7c5f;
+    --accent: #c89b5b;
+    --accent-soft: #6b5638;
+    --rule: #2a2520;
   }
-  h1 { font-size: 1.8em; border-bottom: 2px solid #333; padding-bottom: 0.3em; }
-  h2 { font-size: 1.3em; margin-top: 2em; color: #2a2a2a; }
-  .meta { color: #666; font-size: 0.9em; margin-bottom: 2em; }
-  code { background: #eee; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
-  ul { padding-left: 1.5em; }
-  footer { margin-top: 4em; padding-top: 1em; border-top: 1px solid #ddd; color: #666; font-size: 0.9em; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4em 1.5em 5em;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* En-tête */
+  .header {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.2em;
+    margin-bottom: 3em;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7em;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8em;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2.4em;
+    line-height: 1.15;
+    margin: 0 0 0.6em 0;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78em;
+    line-height: 1.9;
+    color: var(--text-dim);
+    margin-top: 1.2em;
+  }
+
+  .meta strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Sections */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5em;
+    margin: 3em 0 0.8em 0;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  h2::before {
+    content: "§ ";
+    color: var(--accent-soft);
+    font-family: 'EB Garamond', serif;
+  }
+
+  p {
+    margin: 0 0 1.1em 0;
+  }
+
+  strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Listes */
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1.5em 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 1.4em;
+    margin-bottom: 0.6em;
+  }
+
+  ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Liens (placeholder) */
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-soft);
+  }
+
+  a:hover {
+    border-bottom-style: solid;
+  }
+
+  /* Citation / emphase */
+  .lead {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 1.05em;
+    border-left: 1px solid var(--rule);
+    padding-left: 1.2em;
+    margin: 1.5em 0;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 5em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72em;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body { padding: 2.5em 1.2em 3em; font-size: 17px; }
+    h1 { font-size: 1.9em; }
+    h2 { font-size: 1.3em; }
+  }
 </style>
 </head>
 <body>
 
-<h1>Politique de confidentialité — SUBTERRA PROJECT</h1>
+<div class="header">
+  <div class="eyebrow">Document · Confidentialité · v1.0</div>
+  <h1>Politique de <em>confidentialité</em></h1>
+  <div class="meta">
+    <strong>Application</strong> &nbsp;·&nbsp; SUBTERRA PROJECT<br>
+    <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé<br>
+    <strong>Contact</strong> &nbsp;·&nbsp; contact@lavoixdupasse.com<br>
+    <strong>Mise à jour</strong> &nbsp;·&nbsp; [À COMPLÉTER : 18 mai 2026]
+  </div>
+</div>
 
-<p class="meta">
-  Application : SUBTERRA PROJECT<br>
-  Éditeur : La Voix du Passé<br>
-  Contact : contact@lavoixdupasse.com<br>
-  Date de dernière mise à jour : [À COMPLÉTER : 18 mai 2026]
-</p>
-
-<h2>1. Préambule</h2>
-<p>
-  La présente politique de confidentialité décrit la manière dont l'application
-  <strong>SUBTERRA PROJECT</strong> (ci-après « l'Application ») traite les données
-  liées à votre utilisation. Cette politique s'applique à toute personne installant
-  et utilisant l'Application sur un appareil Android.
-</p>
-<p>
-  L'Application est éditée par <strong>La Voix du Passé</strong>, projet personnel
-  dédié à l'exploration et à la documentation des espaces souterrains abandonnés en France.
+<p class="lead">
+  Ce document décrit la manière dont l'application SUBTERRA PROJECT traite
+  les données liées à votre utilisation. Il s'applique à toute personne
+  installant et utilisant l'Application sur un appareil Android.
 </p>
 
-<h2>2. Principe général</h2>
+<h2>Préambule</h2>
 <p>
-  SUBTERRA PROJECT a été conçue selon un principe simple :
-  <strong>aucune donnée personnelle ou d'utilisation n'est transmise à un serveur distant</strong>.
-  L'ensemble du traitement nécessaire au fonctionnement de l'Application s'effectue
-  localement sur l'appareil de l'utilisateur.
-</p>
-<p>
-  L'Application <strong>ne nécessite pas de création de compte</strong> et ne demande
-  aucune information personnelle pour fonctionner.
+  SUBTERRA PROJECT est éditée par <strong>La Voix du Passé</strong>,
+  projet personnel dédié à l'exploration et à la documentation des espaces
+  souterrains abandonnés en France.
 </p>
 
-<h2>3. Données traitées localement</h2>
+<h2>Principe général</h2>
 <p>
-  Pour assurer sa fonction de navigation souterraine par estimation à l'estime (PDR),
-  l'Application accède aux capteurs et données suivants, exclusivement en local :
+  L'Application a été conçue selon un principe simple :
+  <strong>aucune donnée personnelle ou d'utilisation n'est transmise à
+  un serveur distant</strong>. L'ensemble du traitement nécessaire à son
+  fonctionnement s'effectue localement, sur l'appareil de l'utilisateur.
+</p>
+<p>
+  L'Application <strong>ne nécessite pas de création de compte</strong>
+  et ne demande aucune information personnelle pour fonctionner.
+</p>
+
+<h2>Données traitées localement</h2>
+<p>
+  Pour assurer sa fonction de navigation souterraine par estimation à
+  l'estime (PDR), l'Application accède aux capteurs et données suivants,
+  exclusivement en local :
 </p>
 <ul>
-  <li>
-    <strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope) : utilisés pour
-    détecter les pas et estimer le déplacement de l'utilisateur.
-  </li>
-  <li>
-    <strong>Capteur magnétique</strong> (magnétomètre) : utilisé pour déterminer
-    l'orientation lors du déplacement.
-  </li>
-  <li>
-    <strong>Traces et points de passage (« waypoints »)</strong> enregistrés par
-    l'utilisateur : stockés exclusivement dans la mémoire locale de l'appareil.
-  </li>
+  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope) — détection des pas et estimation du déplacement.</li>
+  <li><strong>Capteur magnétique</strong> (magnétomètre) — détermination de l'orientation lors du déplacement.</li>
+  <li><strong>Traces et points de passage</strong> enregistrés par l'utilisateur — stockés exclusivement dans la mémoire locale de l'appareil.</li>
 </ul>
 <p>
   Aucune de ces données n'est transmise, partagée, ou exploitée à des fins commerciales.
 </p>
 
-<h2>4. Permissions Android demandées</h2>
-<p>
-  L'Application peut demander les permissions suivantes :
-</p>
+<h2>Permissions Android</h2>
+<p>L'Application peut demander les permissions suivantes :</p>
 <ul>
-  <li><strong>Accès aux capteurs de mouvement</strong> : indispensable au fonctionnement PDR.</li>
-  <li><strong>Stockage</strong> : pour permettre l'enregistrement des traces et l'export de fichiers (GPX, KML, etc.) à l'initiative de l'utilisateur.</li>
+  <li><strong>Accès aux capteurs de mouvement</strong> — indispensable au fonctionnement PDR.</li>
+  <li><strong>Stockage</strong> — pour permettre l'enregistrement des traces et l'export de fichiers (GPX, KML, GeoJSON…) à l'initiative de l'utilisateur.</li>
 </ul>
 <p>
   L'Application n'utilise <strong>aucune permission de localisation GPS</strong>,
   conformément à sa vocation de navigation hors-signal.
 </p>
 
-<h2>5. Absence de collecte par des tiers</h2>
-<p>
-  Pendant la phase de bêta-test, l'Application :
-</p>
+<h2>Absence de collecte par des tiers</h2>
+<p>Pendant la phase de bêta-test, l'Application :</p>
 <ul>
-  <li>N'intègre aucun service publicitaire ;</li>
-  <li>N'intègre aucun outil d'analytics ou de tracking comportemental tiers ;</li>
-  <li>Ne communique avec aucun service distant pour son fonctionnement principal ;</li>
+  <li>N'intègre aucun service publicitaire.</li>
+  <li>N'intègre aucun outil d'analytics ou de tracking comportemental tiers.</li>
+  <li>Ne communique avec aucun service distant pour son fonctionnement principal.</li>
   <li>Ne partage aucune donnée avec des partenaires commerciaux.</li>
 </ul>
 <p>
-  Seul le mécanisme de remontée de plantages techniques (« crash reports ») fourni
-  par Google Play est susceptible d'être actif. Ces données sont anonymisées par
-  Google et utilisées uniquement à des fins de stabilité de l'Application.
+  Seul le mécanisme de remontée de plantages techniques fourni par Google Play
+  est susceptible d'être actif. Ces données sont anonymisées par Google et
+  utilisées uniquement à des fins de stabilité de l'Application.
 </p>
 
-<h2>6. Données partagées par l'utilisateur</h2>
+<h2>Données partagées par l'utilisateur</h2>
 <p>
-  L'utilisateur peut, à sa seule initiative, exporter ses traces (formats GeoJSON,
-  KML, GPX) vers d'autres applications ou destinataires de son choix. L'éditeur
-  n'a aucun accès à ces exports et n'en conserve aucune copie.
+  L'utilisateur peut, à sa seule initiative, exporter ses traces (formats
+  GeoJSON, KML, GPX) vers d'autres applications ou destinataires de son choix.
+  L'éditeur n'a aucun accès à ces exports et n'en conserve aucune copie.
 </p>
 
-<h2>7. Droits de l'utilisateur (RGPD)</h2>
+<h2>Droits de l'utilisateur (RGPD)</h2>
 <p>
   Dans la mesure où aucune donnée personnelle n'est collectée par l'éditeur,
   les demandes habituelles d'accès, de rectification ou de suppression sont
-  sans objet : <strong>toutes les données sont sous le contrôle exclusif de l'utilisateur</strong>,
-  sur son appareil.
+  sans objet : <strong>toutes les données sont sous le contrôle exclusif
+  de l'utilisateur</strong>, sur son appareil.
 </p>
 <p>
   L'utilisateur peut à tout moment supprimer ses traces et waypoints depuis
@@ -129,33 +260,34 @@
   des données associées.
 </p>
 
-<h2>8. Sécurité</h2>
+<h2>Sécurité</h2>
 <p>
-  Les données stockées localement par l'Application bénéficient des protections
-  natives du système Android. Aucune donnée n'étant transmise via internet,
-  les risques liés à l'interception réseau sont nuls.
+  Les données stockées localement bénéficient des protections natives du
+  système Android. Aucune donnée n'étant transmise via internet, les risques
+  liés à l'interception réseau sont nuls.
 </p>
 
-<h2>9. Modifications de la politique</h2>
+<h2>Modifications de la politique</h2>
 <p>
-  Cette politique peut être amenée à évoluer, notamment à mesure que l'Application
-  ajoute des fonctionnalités (par exemple, lors de l'ajout d'un système d'achat
-  intégré). Toute évolution sera signalée par la mise à jour de la date en tête
-  de ce document et, le cas échéant, par une information dans l'Application.
+  Cette politique peut être amenée à évoluer, notamment à mesure que
+  l'Application ajoute des fonctionnalités (par exemple, lors de l'ajout
+  d'un système d'achat intégré). Toute évolution sera signalée par la mise
+  à jour de la date en tête de ce document et, le cas échéant, par une
+  information dans l'Application.
 </p>
 
-<h2>10. Contact</h2>
+<h2>Contact</h2>
 <p>
   Pour toute question relative à la présente politique de confidentialité,
   ou à l'utilisation de l'Application :
 </p>
-<p>
-  <strong>Email :</strong> contact@lavoixdupasse.com<br>
-  <strong>Éditeur :</strong> La Voix du Passé
-</p>
+<div class="meta">
+  <strong>Email</strong> &nbsp;·&nbsp; contact@lavoixdupasse.com<br>
+  <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé
+</div>
 
 <footer>
-  Document hébergé sur GitHub Pages. Dernière mise à jour : [DATE].
+  La Voix du Passé · Document hébergé · Mise à jour [DATE]
 </footer>
 
 </body>
