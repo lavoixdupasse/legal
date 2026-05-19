@@ -16,16 +16,10 @@
     --accent-soft: #6b5638;
     --rule: #2a2520;
 
-/* Touche néon - couleur exacte de l'application */
---neon: #22d3ee;                          /* Cyan SUBTERRA */
---neon-glow: rgba(34, 211, 238, 0.5);     /* Glow assorti */
---neon-soft: rgba(34, 211, 238, 0.15);    /* Version atténuée */
-
-    /* Alternatives néon à tester :
-       Vert vision nocturne  : #39ff14 / rgba(57, 255, 20, 0.5)
-       Magenta synthwave     : #ff2dd6 / rgba(255, 45, 214, 0.5)
-       Orange signalétique   : #ff7a00 / rgba(255, 122, 0, 0.5)
-    */
+    /* Touche néon - couleur exacte de l'application */
+    --neon: #22d3ee;
+    --neon-glow: rgba(34, 211, 238, 0.5);
+    --neon-soft: rgba(34, 211, 238, 0.15);
   }
 
   * { box-sizing: border-box; }
@@ -41,7 +35,6 @@
     background: var(--bg);
   }
 
-  /* En-tête avec bordure dégradée ambré → néon */
   .header {
     border-left: 2px solid;
     border-image: linear-gradient(
@@ -54,7 +47,6 @@
     margin-bottom: 3em;
   }
 
-  /* Eyebrow en néon avec glow subtil */
   .eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7em;
@@ -94,7 +86,6 @@
     font-weight: 500;
   }
 
-  /* Titres de section avec § en néon */
   h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
@@ -122,7 +113,6 @@
     font-weight: 500;
   }
 
-  /* Listes - tirets ambrés (pas de néon ici, sinon ça surcharge) */
   ul {
     list-style: none;
     padding-left: 0;
@@ -142,7 +132,6 @@
     color: var(--accent);
   }
 
-  /* Liens : ambré au repos, néon au survol */
   a {
     color: var(--accent);
     text-decoration: none;
@@ -156,7 +145,6 @@
     text-shadow: 0 0 8px var(--neon-glow);
   }
 
-  /* Citation lead */
   .lead {
     font-style: italic;
     color: var(--text-dim);
@@ -166,7 +154,6 @@
     margin: 1.5em 0;
   }
 
-  /* Footer avec liseré néon très subtil */
   footer {
     margin-top: 5em;
     padding-top: 1.5em;
@@ -190,7 +177,6 @@
     box-shadow: 0 0 8px var(--neon-glow);
   }
 
-  /* Responsive */
   @media (max-width: 600px) {
     body { padding: 2.5em 1.2em 3em; font-size: 17px; }
     h1 { font-size: 1.9em; }
@@ -201,13 +187,13 @@
 <body>
 
 <div class="header">
-  <div class="eyebrow">Document · Confidentialité · v1.0</div>
+  <div class="eyebrow">Document · Confidentialité · v1.1</div>
   <h1>Politique de <em>confidentialité</em></h1>
   <div class="meta">
     <strong>Application</strong> &nbsp;·&nbsp; SUBTERRA PROJECT<br>
     <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé<br>
     <strong>Contact</strong> &nbsp;·&nbsp; lavoixdupasse@gmail.com<br>
-    <strong>Mise à jour</strong> &nbsp;·&nbsp; 18 mai 2026
+    <strong>Mise à jour</strong> &nbsp;·&nbsp; 19 mai 2026
   </div>
 </div>
 
@@ -223,91 +209,142 @@
   projet personnel dédié à l'exploration et à la documentation des espaces
   souterrains abandonnés en France.
 </p>
+<p>
+  Cette politique reflète le fonctionnement de l'Application dans sa version
+  actuelle de bêta-test, distribuée gratuitement via le programme de test
+  fermé Google Play.
+</p>
 
 <h2>Principe général</h2>
 <p>
-  L'Application a été conçue selon un principe simple :
-  <strong>aucune donnée personnelle ou d'utilisation n'est transmise à
-  un serveur distant</strong>. L'ensemble du traitement nécessaire à son
-  fonctionnement s'effectue localement, sur l'appareil de l'utilisateur.
+  L'Application est conçue pour fonctionner <strong>en autonomie complète</strong>,
+  sans communication serveur pour son fonctionnement principal :
 </p>
+<ul>
+  <li>Aucun compte utilisateur n'est créé.</li>
+  <li>Aucune donnée d'usage n'est transmise à l'éditeur.</li>
+  <li>L'ensemble des traces, points d'intérêt et photos est stocké exclusivement sur l'appareil.</li>
+  <li>Tout export ou partage de données nécessite une action explicite de votre part.</li>
+</ul>
 <p>
-  L'Application <strong>ne nécessite pas de création de compte</strong>
-  et ne demande aucune information personnelle pour fonctionner.
+  Les seules communications réseau effectuées par l'Application concernent
+  le téléchargement de tuiles cartographiques (voir section dédiée).
 </p>
 
 <h2>Données traitées localement</h2>
 <p>
-  Pour assurer sa fonction de navigation souterraine par estimation à
-  l'estime (PDR), l'Application accède aux capteurs et données suivants,
-  exclusivement en local :
+  Les données suivantes sont produites ou collectées par l'Application,
+  exclusivement sur votre appareil :
 </p>
 <ul>
-  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope) — détection des pas et estimation du déplacement.</li>
-  <li><strong>Capteur magnétique</strong> (magnétomètre) — détermination de l'orientation lors du déplacement.</li>
-  <li><strong>Traces et points de passage</strong> enregistrés par l'utilisateur — stockés exclusivement dans la mémoire locale de l'appareil.</li>
+  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope, magnétomètre) — utilisés en temps réel pour la navigation à l'estime (PDR). Les valeurs ne sont pas stockées en tant que telles.</li>
+  <li><strong>Position GPS du point de départ</strong> (facultative) — si vous accordez la permission et qu'un signal est disponible, une coordonnée géographique unique est enregistrée comme point d'ancrage de votre trace. Si la permission est refusée ou qu'aucun signal n'est disponible, l'Application bascule automatiquement sur une ancre virtuelle locale.</li>
+  <li><strong>Traces et points d'intérêt</strong> (waypoints) que vous créez — coordonnées relatives au point de départ, type, notes éventuelles.</li>
+  <li><strong>Photos associées aux waypoints</strong> (facultatives) — vous pouvez attacher jusqu'à 3 photos à un point d'intérêt, soit en les capturant via l'application caméra de votre téléphone, soit en les sélectionnant via le sélecteur de médias système Android.</li>
+  <li><strong>Fichiers de session importés</strong> (facultatifs) — vous pouvez importer dans l'Application des fichiers au format <code>.subterra</code> (export antérieur de l'Application ou transmis par un tiers) via le sélecteur de fichiers système.</li>
 </ul>
 <p>
-  Aucune de ces données n'est transmise, partagée, ou exploitée à des fins commerciales.
+  Toutes ces données restent sous votre contrôle exclusif et ne quittent
+  jamais votre appareil sans une action explicite de votre part.
 </p>
 
 <h2>Permissions Android</h2>
 <p>L'Application peut demander les permissions suivantes :</p>
 <ul>
-  <li><strong>Accès aux capteurs de mouvement</strong> — indispensable au fonctionnement PDR.</li>
-  <li><strong>Stockage</strong> — pour permettre l'enregistrement des traces et l'export de fichiers (GPX, KML, GeoJSON…) à l'initiative de l'utilisateur.</li>
+  <li><strong>Capteurs de mouvement</strong> — indispensable au fonctionnement PDR.</li>
+  <li><strong>Localisation (GPS, facultative)</strong> — utilisée uniquement à l'ouverture d'une session pour ancrer le point de départ de votre trace. Vous pouvez refuser cette permission : l'Application restera entièrement fonctionnelle avec une ancre virtuelle.</li>
+  <li><strong>Internet</strong> — utilisée uniquement pour le téléchargement des tuiles cartographiques (voir section suivante).</li>
 </ul>
 <p>
-  L'Application n'utilise <strong>aucune permission de localisation GPS</strong>,
-  conformément à sa vocation de navigation hors-signal.
+  Pour l'envoi d'un SMS de notification de session, l'utilisation de la liste
+  de contacts, ou la capture photo, l'Application <strong>ne demande aucune
+  permission directe</strong> : elle s'appuie sur les sélecteurs et applications
+  système Android, que vous contrôlez à chaque utilisation.
 </p>
 
-<h2>Absence de collecte par des tiers</h2>
-<p>Pendant la phase de bêta-test, l'Application :</p>
+<h2>Tuiles cartographiques OpenStreetMap</h2>
+<p>
+  Lorsqu'un signal internet est disponible (typiquement en surface,
+  avant une descente), l'Application peut télécharger des tuiles
+  cartographiques depuis les serveurs publics du projet OpenStreetMap
+  pour afficher un fond de carte.
+</p>
+<p>
+  Ces requêtes contiennent uniquement les coordonnées techniques des
+  tuiles demandées (niveau de zoom et identifiants de tuile). Aucun
+  identifiant utilisateur, aucun cookie, aucune donnée personnelle n'est
+  transmis. Les tuiles téléchargées sont mises en cache localement pour
+  un usage hors-ligne ultérieur.
+</p>
+<p>
+  Pour plus d'informations, consultez la politique de confidentialité
+  d'OpenStreetMap : <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">wiki.osmfoundation.org/wiki/Privacy_Policy</a>.
+</p>
+
+<h2>Partage initié par l'utilisateur</h2>
+<p>
+  L'Application vous permet, à votre seule initiative, de partager vos
+  données vers l'extérieur :
+</p>
 <ul>
-  <li>N'intègre aucun service publicitaire.</li>
-  <li>N'intègre aucun outil d'analytics ou de tracking comportemental tiers.</li>
-  <li>Ne communique avec aucun service distant pour son fonctionnement principal.</li>
-  <li>Ne partage aucune donnée avec des partenaires commerciaux.</li>
+  <li><strong>Export de traces</strong> aux formats GeoJSON, KML, GPX ou <code>.subterra</code>, transmis via le sélecteur de partage Android (mail, cloud personnel, autre application).</li>
+  <li><strong>SMS de notification de session</strong> à un contact de votre choix : l'application SMS native de votre téléphone s'ouvre avec le message pré-rédigé ; vous validez l'envoi vous-même.</li>
 </ul>
 <p>
-  Seul le mécanisme de remontée de plantages techniques fourni par Google Play
-  est susceptible d'être actif. Ces données sont anonymisées par Google et
-  utilisées uniquement à des fins de stabilité de l'Application.
+  Dans tous les cas, l'éditeur n'a aucun accès à ces communications et
+  n'en conserve aucune copie. Les destinataires et les modalités du
+  partage sont entièrement sous votre contrôle.
 </p>
 
-<h2>Données partagées par l'utilisateur</h2>
+<h2>Rapports de plantage</h2>
 <p>
-  L'utilisateur peut, à sa seule initiative, exporter ses traces (formats
-  GeoJSON, KML, GPX) vers d'autres applications ou destinataires de son choix.
-  L'éditeur n'a aucun accès à ces exports et n'en conserve aucune copie.
-</p>
-
-<h2>Droits de l'utilisateur (RGPD)</h2>
-<p>
-  Dans la mesure où aucune donnée personnelle n'est collectée par l'éditeur,
-  les demandes habituelles d'accès, de rectification ou de suppression sont
-  sans objet : <strong>toutes les données sont sous le contrôle exclusif
-  de l'utilisateur</strong>, sur son appareil.
+  Lorsque l'Application rencontre un plantage technique, un rapport
+  anonymisé peut être transmis à Google par le système Play Store. Ces
+  rapports sont gérés par Google selon ses propres politiques et permettent
+  à l'éditeur d'identifier et corriger les bugs.
 </p>
 <p>
-  L'utilisateur peut à tout moment supprimer ses traces et waypoints depuis
-  l'Application, ou désinstaller l'Application, ce qui effacera la totalité
-  des données associées.
+  Ces rapports ne contiennent <strong>aucune donnée personnelle, aucune
+  trace, aucune photo, aucune position GPS</strong> de l'utilisateur. Ils
+  incluent uniquement des informations techniques sur le plantage (modèle
+  d'appareil, version d'Android, état mémoire au moment de l'incident).
 </p>
 
 <h2>Sécurité</h2>
 <p>
   Les données stockées localement bénéficient des protections natives du
-  système Android. Aucune donnée n'étant transmise via internet, les risques
-  liés à l'interception réseau sont nuls.
+  système Android (stockage privé de l'application, accessible uniquement
+  par l'Application elle-même).
+</p>
+<p>
+  Les communications réseau effectuées par l'Application (tuiles OSM,
+  rapports de plantage via Play Store) utilisent le protocole HTTPS, garantissant
+  un chiffrement des échanges.
+</p>
+
+<h2>Droits de l'utilisateur (RGPD)</h2>
+<p>
+  En raison du fonctionnement local de l'Application, vous disposez à
+  tout moment d'un contrôle complet sur vos données :
+</p>
+<ul>
+  <li><strong>Accès</strong> — toutes vos données sont consultables directement dans l'Application.</li>
+  <li><strong>Modification</strong> — vous pouvez éditer ou supprimer vos traces et waypoints à tout moment.</li>
+  <li><strong>Suppression</strong> — la désinstallation de l'Application efface l'intégralité des données associées.</li>
+  <li><strong>Portabilité</strong> — vous pouvez exporter vos données aux formats standards GeoJSON, KML, GPX.</li>
+</ul>
+<p>
+  L'éditeur ne détenant aucune donnée personnelle de votre part, les
+  demandes habituelles d'accès, de rectification ou de suppression auprès
+  de l'éditeur sont sans objet.
 </p>
 
 <h2>Modifications de la politique</h2>
 <p>
-  Cette politique peut être amenée à évoluer, notamment à mesure que
-  l'Application ajoute des fonctionnalités (par exemple, lors de l'ajout
-  d'un système d'achat intégré). Toute évolution sera signalée par la mise
+  Cette politique peut être amenée à évoluer, notamment lorsque
+  l'Application ajoutera des fonctionnalités impliquant des communications
+  serveur (par exemple, lors de l'ajout d'un système d'achat intégré ou
+  d'une synchronisation cloud). Toute évolution sera signalée par la mise
   à jour de la date en tête de ce document et, le cas échéant, par une
   information dans l'Application.
 </p>
@@ -323,7 +360,7 @@
 </div>
 
 <footer>
-  La Voix du Passé · Document hébergé · Mise à jour 18/05/2026
+  La Voix du Passé · Document hébergé · Mise à jour 19/05/2026
 </footer>
 
 </body>
