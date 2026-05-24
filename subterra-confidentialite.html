@@ -15,15 +15,12 @@
     --accent: #c89b5b;
     --accent-soft: #6b5638;
     --rule: #2a2520;
-
     /* Touche néon - couleur exacte de l'application */
     --neon: #22d3ee;
     --neon-glow: rgba(34, 211, 238, 0.5);
     --neon-soft: rgba(34, 211, 238, 0.15);
   }
-
   * { box-sizing: border-box; }
-
   body {
     font-family: 'EB Garamond', Georgia, serif;
     font-size: 18px;
@@ -34,7 +31,6 @@
     color: var(--text);
     background: var(--bg);
   }
-
   .header {
     border-left: 2px solid;
     border-image: linear-gradient(
@@ -46,7 +42,6 @@
     padding-left: 1.2em;
     margin-bottom: 3em;
   }
-
   .eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7em;
@@ -56,7 +51,6 @@
     text-shadow: 0 0 12px var(--neon-glow);
     margin-bottom: 0.8em;
   }
-
   h1 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
@@ -66,13 +60,11 @@
     color: var(--text);
     letter-spacing: 0.01em;
   }
-
   h1 em {
     font-style: italic;
     color: var(--accent);
     font-weight: 400;
   }
-
   .meta {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78em;
@@ -80,12 +72,10 @@
     color: var(--text-dim);
     margin-top: 1.2em;
   }
-
   .meta strong {
     color: var(--text);
     font-weight: 500;
   }
-
   h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
@@ -94,7 +84,6 @@
     color: var(--accent);
     letter-spacing: 0.01em;
   }
-
   h2::before {
     content: "◈ ";
     color: var(--neon);
@@ -103,48 +92,40 @@
     font-size: 0.8em;
     vertical-align: 0.1em;
   }
-
   p {
     margin: 0 0 1.1em 0;
   }
-
   strong {
     color: var(--text);
     font-weight: 500;
   }
-
   ul {
     list-style: none;
     padding-left: 0;
     margin: 0 0 1.5em 0;
   }
-
   ul li {
     position: relative;
     padding-left: 1.4em;
     margin-bottom: 0.6em;
   }
-
   ul li::before {
     content: "—";
     position: absolute;
     left: 0;
     color: var(--accent);
   }
-
   a {
     color: var(--accent);
     text-decoration: none;
     border-bottom: 1px dotted var(--accent-soft);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
-
   a:hover {
     color: var(--neon);
     border-bottom: 1px solid var(--neon);
     text-shadow: 0 0 8px var(--neon-glow);
   }
-
   .lead {
     font-style: italic;
     color: var(--text-dim);
@@ -153,7 +134,6 @@
     padding-left: 1.2em;
     margin: 1.5em 0;
   }
-
   footer {
     margin-top: 5em;
     padding-top: 1.5em;
@@ -165,7 +145,6 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
-
   footer::before {
     content: "";
     position: absolute;
@@ -176,7 +155,6 @@
     background: var(--neon);
     box-shadow: 0 0 8px var(--neon-glow);
   }
-
   @media (max-width: 600px) {
     body { padding: 2.5em 1.2em 3em; font-size: 17px; }
     h1 { font-size: 1.9em; }
@@ -185,24 +163,21 @@
 </style>
 </head>
 <body>
-
 <div class="header">
-  <div class="eyebrow">Document · Confidentialité · v1.1</div>
+  <div class="eyebrow">Document · Confidentialité · v1.2</div>
   <h1>Politique de <em>confidentialité</em></h1>
   <div class="meta">
     <strong>Application</strong> &nbsp;·&nbsp; SUBTERRA PROJECT<br>
     <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé<br>
     <strong>Contact</strong> &nbsp;·&nbsp; lavoixdupasse@gmail.com<br>
-    <strong>Mise à jour</strong> &nbsp;·&nbsp; 19 mai 2026
+    <strong>Mise à jour</strong> &nbsp;·&nbsp; 24 mai 2026
   </div>
 </div>
-
 <p class="lead">
   Ce document décrit la manière dont l'application SUBTERRA PROJECT traite
   les données liées à votre utilisation. Il s'applique à toute personne
   installant et utilisant l'Application sur un appareil Android.
 </p>
-
 <h2>Préambule</h2>
 <p>
   SUBTERRA PROJECT est éditée par <strong>La Voix du Passé</strong>,
@@ -214,7 +189,6 @@
   actuelle de bêta-test, distribuée gratuitement via le programme de test
   fermé Google Play.
 </p>
-
 <h2>Principe général</h2>
 <p>
   L'Application est conçue pour fonctionner <strong>en autonomie complète</strong>,
@@ -230,38 +204,43 @@
   Les seules communications réseau effectuées par l'Application concernent
   le téléchargement de tuiles cartographiques (voir section dédiée).
 </p>
-
 <h2>Données traitées localement</h2>
 <p>
   Les données suivantes sont produites ou collectées par l'Application,
   exclusivement sur votre appareil :
 </p>
 <ul>
-  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope, magnétomètre) — utilisés en temps réel pour la navigation à l'estime (PDR). Les valeurs ne sont pas stockées en tant que telles.</li>
+  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope, magnétomètre) — utilisés en temps réel pour la navigation à l'estime (PDR). Les valeurs brutes ne sont pas conservées.</li>
+  <li><strong>Échantillons de qualité du heading</strong> — toutes les 5 secondes pendant une session active, deux valeurs synthétiques sont enregistrées (qualité du magnétomètre 0-1, écart angulaire en degrés entre cap gyroscope et magnétomètre). Ces données permettent d'afficher rétrospectivement la qualité de l'orientation au cours de la session, dans le rapport de session.</li>
   <li><strong>Position GPS du point de départ</strong> (facultative) — si vous accordez la permission et qu'un signal est disponible, une coordonnée géographique unique est enregistrée comme point d'ancrage de votre trace. Si la permission est refusée ou qu'aucun signal n'est disponible, l'Application bascule automatiquement sur une ancre virtuelle locale.</li>
   <li><strong>Traces et points d'intérêt</strong> (waypoints) que vous créez — coordonnées relatives au point de départ, type, notes éventuelles.</li>
-  <li><strong>Photos associées aux waypoints</strong> (facultatives) — vous pouvez attacher jusqu'à 3 photos à un point d'intérêt, soit en les capturant via l'application caméra de votre téléphone, soit en les sélectionnant via le sélecteur de médias système Android.</li>
+  <li><strong>Photos associées aux waypoints et aux zones</strong> (facultatives) — vous pouvez attacher jusqu'à 6 photos à un point d'intérêt ou à une zone, soit en les capturant via l'application caméra de votre téléphone, soit en les sélectionnant via le sélecteur de médias système Android.</li>
+  <li><strong>Paramètres de sécurité optionnels</strong> — si vous activez l'option « Sécurité » au démarrage d'une session, l'heure de retour prévue ainsi que le contact de confiance choisi (nom et numéro) sont stockés localement dans les préférences de l'application pour réutilisation ultérieure. Ces informations ne quittent l'appareil que si vous validez vous-même l'envoi du SMS.</li>
   <li><strong>Fichiers de session importés</strong> (facultatifs) — vous pouvez importer dans l'Application des fichiers au format <code>.subterra</code> (export antérieur de l'Application ou transmis par un tiers) via le sélecteur de fichiers système.</li>
 </ul>
 <p>
   Toutes ces données restent sous votre contrôle exclusif et ne quittent
   jamais votre appareil sans une action explicite de votre part.
 </p>
-
 <h2>Permissions Android</h2>
 <p>L'Application peut demander les permissions suivantes :</p>
 <ul>
-  <li><strong>Capteurs de mouvement</strong> — indispensable au fonctionnement PDR.</li>
-  <li><strong>Localisation (GPS, facultative)</strong> — utilisée uniquement à l'ouverture d'une session pour ancrer le point de départ de votre trace. Vous pouvez refuser cette permission : l'Application restera entièrement fonctionnelle avec une ancre virtuelle.</li>
+  <li><strong>Capteurs de mouvement (haute fréquence)</strong> — indispensable au fonctionnement PDR : accéléromètre, gyroscope et magnétomètre échantillonnés à fréquence élevée pour calculer le tracé.</li>
+  <li><strong>Activité physique (ACTIVITY_RECOGNITION)</strong> — utilisée pour accéder au détecteur de pas matériel du téléphone, essentiel à la précision du tracé. En cas de refus, le tracé fonctionne via l'accéléromètre seul mais avec une précision moindre.</li>
+  <li><strong>Localisation (GPS, facultative)</strong> — utilisée <strong>uniquement à l'ouverture d'une session</strong> pour ancrer le point de départ de votre trace, et pour pouvoir inclure une position dans le SMS optionnel de notification. Aucun usage en arrière-plan. Vous pouvez refuser cette permission : l'Application restera entièrement fonctionnelle avec une ancre virtuelle.</li>
+  <li><strong>Appareil photo (CAMERA)</strong> — demandée uniquement quand vous prenez une photo d'un waypoint ou d'une zone. Vous pouvez aussi choisir des photos existantes via le sélecteur de médias système (qui ne nécessite aucune permission). En cas de refus, la capture directe est désactivée mais l'import de photos depuis la galerie reste possible.</li>
+  <li><strong>Notifications</strong> — utilisées pour afficher l'état de la session active en arrière-plan (notification persistante du service de cartographie) et pour signaler certaines alertes (batterie critique, dépassement de l'heure de retour, dérive magnétique détectée).</li>
+  <li><strong>Service en avant-plan (FOREGROUND_SERVICE)</strong> — permet à la cartographie de continuer quand l'écran est éteint ou quand vous utilisez une autre application. Indispensable pour les longues explorations.</li>
+  <li><strong>Maintien de l'écran allumé (WAKE_LOCK)</strong> — empêche l'écran de s'endormir pendant qu'une session est active, pour pouvoir consulter la carte sans interruption pendant l'exploration.</li>
   <li><strong>Internet</strong> — utilisée uniquement pour le téléchargement des tuiles cartographiques (voir section suivante).</li>
 </ul>
 <p>
-  Pour l'envoi d'un SMS de notification de session, l'utilisation de la liste
-  de contacts, ou la capture photo, l'Application <strong>ne demande aucune
-  permission directe</strong> : elle s'appuie sur les sélecteurs et applications
-  système Android, que vous contrôlez à chaque utilisation.
+  Pour l'envoi d'un SMS de notification de session ou la sélection d'un contact,
+  l'Application <strong>ne demande aucune permission directe</strong> : elle s'appuie
+  sur les sélecteurs et applications système Android (sélecteur de contacts,
+  application SMS native), que vous contrôlez à chaque utilisation. L'Application
+  n'a jamais accès à votre carnet d'adresses ni à votre historique SMS.
 </p>
-
 <h2>Tuiles cartographiques OpenStreetMap</h2>
 <p>
   Lorsqu'un signal internet est disponible (typiquement en surface,
@@ -280,22 +259,20 @@
   Pour plus d'informations, consultez la politique de confidentialité
   d'OpenStreetMap : <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">wiki.osmfoundation.org/wiki/Privacy_Policy</a>.
 </p>
-
 <h2>Partage initié par l'utilisateur</h2>
 <p>
   L'Application vous permet, à votre seule initiative, de partager vos
   données vers l'extérieur :
 </p>
 <ul>
-  <li><strong>Export de traces</strong> aux formats GeoJSON, KML, GPX ou <code>.subterra</code>, transmis via le sélecteur de partage Android (mail, cloud personnel, autre application).</li>
-  <li><strong>SMS de notification de session</strong> à un contact de votre choix : l'application SMS native de votre téléphone s'ouvre avec le message pré-rédigé ; vous validez l'envoi vous-même.</li>
+  <li><strong>Export de traces</strong> aux formats GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ (modèle 3D) ou <code>.subterra</code> (format natif), transmis via le sélecteur de partage Android (mail, cloud personnel, autre application).</li>
+  <li><strong>SMS de notification de session</strong> à un contact de votre choix : l'application SMS native de votre téléphone s'ouvre avec le message pré-rédigé (heure prévue de retour et, si disponible, position GPS du point d'entrée) ; vous validez l'envoi vous-même.</li>
 </ul>
 <p>
   Dans tous les cas, l'éditeur n'a aucun accès à ces communications et
   n'en conserve aucune copie. Les destinataires et les modalités du
   partage sont entièrement sous votre contrôle.
 </p>
-
 <h2>Rapports de plantage</h2>
 <p>
   Lorsque l'Application rencontre un plantage technique, un rapport
@@ -309,7 +286,6 @@
   incluent uniquement des informations techniques sur le plantage (modèle
   d'appareil, version d'Android, état mémoire au moment de l'incident).
 </p>
-
 <h2>Sécurité</h2>
 <p>
   Les données stockées localement bénéficient des protections natives du
@@ -321,7 +297,6 @@
   rapports de plantage via Play Store) utilisent le protocole HTTPS, garantissant
   un chiffrement des échanges.
 </p>
-
 <h2>Droits de l'utilisateur (RGPD)</h2>
 <p>
   En raison du fonctionnement local de l'Application, vous disposez à
@@ -329,16 +304,15 @@
 </p>
 <ul>
   <li><strong>Accès</strong> — toutes vos données sont consultables directement dans l'Application.</li>
-  <li><strong>Modification</strong> — vous pouvez éditer ou supprimer vos traces et waypoints à tout moment.</li>
+  <li><strong>Modification</strong> — vous pouvez éditer ou supprimer vos traces, waypoints, zones et photos à tout moment.</li>
   <li><strong>Suppression</strong> — la désinstallation de l'Application efface l'intégralité des données associées.</li>
-  <li><strong>Portabilité</strong> — vous pouvez exporter vos données aux formats standards GeoJSON, KML, GPX.</li>
+  <li><strong>Portabilité</strong> — vous pouvez exporter vos données aux formats standards GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ.</li>
 </ul>
 <p>
   L'éditeur ne détenant aucune donnée personnelle de votre part, les
   demandes habituelles d'accès, de rectification ou de suppression auprès
   de l'éditeur sont sans objet.
 </p>
-
 <h2>Modifications de la politique</h2>
 <p>
   Cette politique peut être amenée à évoluer, notamment lorsque
@@ -348,7 +322,6 @@
   à jour de la date en tête de ce document et, le cas échéant, par une
   information dans l'Application.
 </p>
-
 <h2>Contact</h2>
 <p>
   Pour toute question relative à la présente politique de confidentialité,
@@ -358,10 +331,8 @@
   <strong>Email</strong> &nbsp;·&nbsp; lavoixdupasse@gmail.com<br>
   <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé
 </div>
-
 <footer>
-  La Voix du Passé · Document hébergé · Mise à jour 19/05/2026
+  La Voix du Passé · Document hébergé · Mise à jour 24/05/2026
 </footer>
-
 </body>
 </html>
