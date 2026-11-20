@@ -92,12 +92,25 @@
     font-size: 0.8em;
     vertical-align: 0.1em;
   }
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    margin: 1.8em 0 0.5em 0;
+    color: var(--text);
+  }
   p {
     margin: 0 0 1.1em 0;
   }
   strong {
     color: var(--text);
     font-weight: 500;
+  }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    color: var(--text);
+    overflow-wrap: anywhere;
   }
   ul {
     list-style: none;
@@ -164,19 +177,20 @@
 </head>
 <body>
 <div class="header">
-  <div class="eyebrow">Document · Confidentialité · v1.2</div>
+  <div class="eyebrow">Document · Confidentialité · v1.3</div>
   <h1>Politique de <em>confidentialité</em></h1>
   <div class="meta">
     <strong>Application</strong> &nbsp;·&nbsp; SUBTERRA PROJECT<br>
     <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé<br>
     <strong>Contact</strong> &nbsp;·&nbsp; lavoixdupasse@gmail.com<br>
-    <strong>Mise à jour</strong> &nbsp;·&nbsp; 24 mai 2026
+    <strong>Mise à jour</strong> &nbsp;·&nbsp; 20 novembre 2026
   </div>
 </div>
 <p class="lead">
   Ce document décrit la manière dont l'application SUBTERRA PROJECT traite
   les données liées à votre utilisation. Il s'applique à toute personne
-  installant et utilisant l'Application sur un appareil Android.
+  installant et utilisant l'Application sur un appareil Android, ainsi
+  qu'au logiciel compagnon Subterra Desktop pour ordinateur.
 </p>
 <h2>Préambule</h2>
 <p>
@@ -186,23 +200,25 @@
 </p>
 <p>
   Cette politique reflète le fonctionnement de l'Application dans sa version
-  actuelle de bêta-test, distribuée gratuitement via le programme de test
+  actuelle de bêta-test (version 1.4.0), distribuée gratuitement via le programme de test
   fermé Google Play.
 </p>
 <h2>Principe général</h2>
 <p>
   L'Application est conçue pour fonctionner <strong>en autonomie complète</strong>,
-  sans communication serveur pour son fonctionnement principal :
+  sans serveur de l'éditeur :
 </p>
 <ul>
   <li>Aucun compte utilisateur n'est créé.</li>
-  <li>Aucune donnée d'usage n'est transmise à l'éditeur.</li>
+  <li>Aucune donnée d'usage n'est transmise à l'éditeur. L'Application ne contient aucun outil de publicité, de mesure d'audience ou de suivi.</li>
   <li>L'ensemble des traces, points d'intérêt et photos est stocké exclusivement sur l'appareil.</li>
   <li>Tout export ou partage de données nécessite une action explicite de votre part.</li>
 </ul>
 <p>
   Les seules communications réseau effectuées par l'Application concernent
-  le téléchargement de tuiles cartographiques (voir section dédiée).
+  l'affichage de cartes de surface : téléchargement de fonds de carte et de
+  données géographiques publiques auprès de l'IGN, d'OpenStreetMap et d'Esri
+  (voir section dédiée).
 </p>
 <h2>Données traitées localement</h2>
 <p>
@@ -210,54 +226,80 @@
   exclusivement sur votre appareil :
 </p>
 <ul>
-  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope, magnétomètre) — utilisés en temps réel pour la navigation à l'estime (PDR). Les valeurs brutes ne sont pas conservées.</li>
+  <li><strong>Capteurs de mouvement</strong> (accéléromètre, gyroscope, magnétomètre, baromètre si l'appareil en possède un) — utilisés en temps réel pour la navigation à l'estime (PDR).</li>
+  <li><strong>Données brutes des capteurs</strong> (option « capteurs bruts », activée par défaut, désactivable dans les réglages) — pendant une session, les valeurs brutes des capteurs ci-dessus sont enregistrées dans un fichier annexe, afin de pouvoir recalculer ou améliorer un tracé après coup. Ce stockage est plafonné à 1 Go : au-delà, les enregistrements les plus anciens sont effacés automatiquement, et l'Application vous prévient. Ces fichiers restent dans le stockage privé de l'Application et ne sont inclus dans un export que si vous choisissez explicitement l'export « avec données brutes ».</li>
   <li><strong>Échantillons de qualité du heading</strong> — toutes les 5 secondes pendant une session active, deux valeurs synthétiques sont enregistrées (qualité du magnétomètre 0-1, écart angulaire en degrés entre cap gyroscope et magnétomètre). Ces données permettent d'afficher rétrospectivement la qualité de l'orientation au cours de la session, dans le rapport de session.</li>
-  <li><strong>Position GPS du point de départ</strong> (facultative) — si vous accordez la permission et qu'un signal est disponible, une coordonnée géographique unique est enregistrée comme point d'ancrage de votre trace. Si la permission est refusée ou qu'aucun signal n'est disponible, l'Application bascule automatiquement sur une ancre virtuelle locale.</li>
-  <li><strong>Traces et points d'intérêt</strong> (waypoints) que vous créez — coordonnées relatives au point de départ, type, notes éventuelles.</li>
-  <li><strong>Photos associées aux waypoints et aux zones</strong> (facultatives) — vous pouvez attacher jusqu'à 6 photos à un point d'intérêt ou à une zone, soit en les capturant via l'application caméra de votre téléphone, soit en les sélectionnant via le sélecteur de médias système Android.</li>
+  <li><strong>Position GPS du point de départ</strong> (facultative) — si vous accordez la permission et qu'un signal est disponible, une coordonnée géographique unique est enregistrée comme point d'ancrage de votre trace. Si la permission est refusée ou qu'aucun signal n'est disponible, l'Application bascule automatiquement sur une ancre virtuelle locale. Vous pouvez aussi saisir ou choisir sur une carte la position de l'entrée, ou celle d'un point d'intérêt.</li>
+  <li><strong>Traces et points d'intérêt</strong> (waypoints) que vous créez — coordonnées relatives au point de départ, type, notes éventuelles, ainsi que les zones, annotations, largeurs de galerie, niveaux et modifications faites dans l'éditeur de tracé.</li>
+  <li><strong>Données d'un capteur externe</strong> (facultatives) — si vous connectez en Bluetooth un capteur optionnel (bloc LiDAR, capteur de pied), ses mesures sont enregistrées dans la session.</li>
+  <li><strong>Photos associées aux waypoints et aux zones</strong> (facultatives) — vous pouvez attacher des photos à un point d'intérêt ou à une zone, soit en les capturant via l'application caméra de votre téléphone, soit en les sélectionnant via le sélecteur de médias système Android.</li>
+  <li><strong>Pseudo d'explorateur</strong> (facultatif) — s'il est renseigné, il apparaît dans la zone « Relevé par » des rapports exportés. Laissé vide, il n'apparaît nulle part.</li>
   <li><strong>Paramètres de sécurité optionnels</strong> — si vous activez l'option « Sécurité » au démarrage d'une session, l'heure de retour prévue ainsi que le contact de confiance choisi (nom et numéro) sont stockés localement dans les préférences de l'application pour réutilisation ultérieure. Ces informations ne quittent l'appareil que si vous validez vous-même l'envoi du SMS.</li>
+  <li><strong>Réglages et étalonnages</strong> — longueur de pas, calibration de la boussole et préférences d'affichage, propres à votre appareil.</li>
+  <li><strong>Données géographiques en cache</strong> — les fonds de carte et les données de surface de l'IGN déjà téléchargés sont conservés sur l'appareil pour un usage hors ligne (les données de surface sont effacées automatiquement au plus tard après 60 jours).</li>
   <li><strong>Fichiers de session importés</strong> (facultatifs) — vous pouvez importer dans l'Application des fichiers au format <code>.subterra</code> (export antérieur de l'Application ou transmis par un tiers) via le sélecteur de fichiers système.</li>
 </ul>
 <p>
   Toutes ces données restent sous votre contrôle exclusif et ne quittent
   jamais votre appareil sans une action explicite de votre part.
 </p>
+<h2>Sauvegardes</h2>
+<ul>
+  <li><strong>Sauvegarde automatique</strong> (activée par défaut, désactivable dans la liste des sessions) — à la fin de chaque cartographie, une copie de la session au format <code>.subterra</code>, photos comprises, est enregistrée dans le dossier <code>Documents/SubterraProject/Sauvegardes</code> de votre téléphone. Elle permet de retrouver vos sessions après une désinstallation ou une perte de données. Ce dossier se trouve dans le stockage partagé : il est lisible par les autres applications autorisées à accéder à vos documents et par un ordinateur relié au téléphone.</li>
+  <li><strong>Sauvegarde Google (cloud)</strong> — désactivée : aucune donnée de l'Application n'est copiée dans votre compte Google.</li>
+  <li><strong>Transfert vers un nouveau téléphone</strong> — lors d'un transfert direct d'appareil à appareil proposé par Android, seules les sessions et leurs photos sont copiées.</li>
+</ul>
 <h2>Permissions Android</h2>
 <p>L'Application peut demander les permissions suivantes :</p>
 <ul>
   <li><strong>Capteurs de mouvement (haute fréquence)</strong> — indispensable au fonctionnement PDR : accéléromètre, gyroscope et magnétomètre échantillonnés à fréquence élevée pour calculer le tracé.</li>
   <li><strong>Activité physique (ACTIVITY_RECOGNITION)</strong> — utilisée pour accéder au détecteur de pas matériel du téléphone, essentiel à la précision du tracé. En cas de refus, le tracé fonctionne via l'accéléromètre seul mais avec une précision moindre.</li>
-  <li><strong>Localisation (GPS, facultative)</strong> — utilisée <strong>uniquement à l'ouverture d'une session</strong> pour ancrer le point de départ de votre trace, et pour pouvoir inclure une position dans le SMS optionnel de notification. Aucun usage en arrière-plan. Vous pouvez refuser cette permission : l'Application restera entièrement fonctionnelle avec une ancre virtuelle.</li>
-  <li><strong>Appareil photo (CAMERA)</strong> — demandée uniquement quand vous prenez une photo d'un waypoint ou d'une zone. Vous pouvez aussi choisir des photos existantes via le sélecteur de médias système (qui ne nécessite aucune permission). En cas de refus, la capture directe est désactivée mais l'import de photos depuis la galerie reste possible.</li>
-  <li><strong>Notifications</strong> — utilisées pour afficher l'état de la session active en arrière-plan (notification persistante du service de cartographie) et pour signaler certaines alertes (batterie critique, dépassement de l'heure de retour, dérive magnétique détectée).</li>
-  <li><strong>Service en avant-plan (FOREGROUND_SERVICE)</strong> — permet à la cartographie de continuer quand l'écran est éteint ou quand vous utilisez une autre application. Indispensable pour les longues explorations.</li>
-  <li><strong>Maintien de l'écran allumé (WAKE_LOCK)</strong> — empêche l'écran de s'endormir pendant qu'une session est active, pour pouvoir consulter la carte sans interruption pendant l'exploration.</li>
-  <li><strong>Internet</strong> — utilisée uniquement pour le téléchargement des tuiles cartographiques (voir section suivante).</li>
+  <li><strong>Localisation (GPS, facultative)</strong> — utilisée <strong>uniquement à l'ouverture d'une session</strong> pour ancrer le point de départ de votre trace, et pour pouvoir inclure une position dans le SMS optionnel de notification. Aucun usage en arrière-plan : sous terre, le tracé est calculé par les seuls capteurs de mouvement. Vous pouvez refuser cette permission : l'Application restera entièrement fonctionnelle avec une ancre virtuelle. La position est fournie par le service de localisation d'Android (Google Play services), qui peut s'aider des réseaux Wi-Fi et mobiles environnants selon les réglages de votre téléphone.</li>
+  <li><strong>Bluetooth (recherche et connexion d'appareils)</strong> — utilisé uniquement si vous connectez un capteur externe optionnel (bloc LiDAR, capteur de pied). La recherche Bluetooth n'est jamais utilisée pour vous localiser.</li>
+  <li><strong>Notifications</strong> — utilisées pour afficher l'état de la session active en arrière-plan (notification persistante du service de cartographie) et pour signaler certaines alertes (batterie critique, dépassement de l'heure de retour).</li>
+  <li><strong>Service de premier plan (FOREGROUND_SERVICE, types « santé » et « localisation »)</strong> — permet à la cartographie de continuer à compter les pas et à tracer la carte quand l'écran est éteint ou quand vous utilisez une autre application. Indispensable pour les longues explorations. Sur Android 14 et plus, le service est déclaré comme suivi d'activité (comptage des pas) : il n'a pas besoin de la localisation et fonctionne même si vous l'avez refusée.</li>
+  <li><strong>Maintien en éveil (WAKE_LOCK)</strong> — empêche le téléphone de suspendre le calcul du tracé pendant qu'une session est active, y compris écran éteint. L'écran peut aussi rester allumé pendant la cartographie pour consulter la carte sans interruption.</li>
+  <li><strong>Internet</strong> — utilisée uniquement pour le téléchargement des fonds de carte et des données géographiques (voir section suivante).</li>
+  <li><strong>Stockage (Android 9 et versions antérieures uniquement)</strong> — enregistrement des exports et des sauvegardes dans les dossiers Images et Documents. À partir d'Android 10, aucune permission n'est nécessaire.</li>
 </ul>
 <p>
+  Pour prendre une photo, l'Application ouvre l'application appareil photo de votre
+  téléphone et <strong>ne demande pas elle-même la permission caméra</strong>.
   Pour l'envoi d'un SMS de notification de session ou la sélection d'un contact,
   l'Application <strong>ne demande aucune permission directe</strong> : elle s'appuie
   sur les sélecteurs et applications système Android (sélecteur de contacts,
   application SMS native), que vous contrôlez à chaque utilisation. L'Application
   n'a jamais accès à votre carnet d'adresses ni à votre historique SMS.
 </p>
-<h2>Tuiles cartographiques OpenStreetMap</h2>
+<h2>Cartes de surface et données géographiques</h2>
 <p>
   Lorsqu'un signal internet est disponible (typiquement en surface,
-  avant une descente), l'Application peut télécharger des tuiles
-  cartographiques depuis les serveurs publics du projet OpenStreetMap
-  pour afficher un fond de carte.
+  avant une descente), l'Application peut contacter les services publics
+  suivants, uniquement quand vous utilisez la fonction concernée :
+</p>
+<ul>
+  <li><strong>IGN, Géoplateforme</strong> (<code>data.geopf.fr</code>) — fonds de carte (photographie aérienne, Plan IGN) quand une carte de surface s'affiche : choix d'un point sur la carte, plan de situation du rapport, calibration du cap. Également, à l'ouverture de la <strong>vue éclatée</strong>, les bâtiments, routes, cours d'eau, végétation et relief d'un rectangle entourant votre réseau.</li>
+  <li><strong>OpenStreetMap</strong> (<code>tile.openstreetmap.org</code>) — fond de carte OpenStreetMap, si vous le choisissez.</li>
+  <li><strong>Recherche de lieu OpenStreetMap Nominatim</strong> (<code>nominatim.openstreetmap.org</code>) — seulement si vous tapez une recherche dans le choix d'un point sur la carte : le texte tapé est envoyé.</li>
+  <li><strong>Esri</strong> (<code>server.arcgisonline.com</code>) — photographie aérienne de la page « vue aérienne » des exports PDF et PNG.</li>
+</ul>
+<p>
+  Ces requêtes contiennent les coordonnées techniques des tuiles demandées
+  (niveau de zoom et identifiants de tuile) ou du rectangle de la vue éclatée :
+  le service sollicité voit donc approximativement la zone affichée, c'est-à-dire
+  l'emplacement de la session. Comme pour toute connexion internet, il reçoit
+  aussi l'adresse IP de votre appareil. Aucun identifiant utilisateur, aucun
+  cookie, et aucune donnée de la session (tracé, waypoints, photos, notes)
+  n'est transmis. Les données téléchargées sont mises en cache localement pour
+  un usage hors ligne ultérieur. Les bibliothèques de cartographie (Leaflet)
+  sont incluses dans l'Application : aucune n'est téléchargée depuis un site tiers.
 </p>
 <p>
-  Ces requêtes contiennent uniquement les coordonnées techniques des
-  tuiles demandées (niveau de zoom et identifiants de tuile). Aucun
-  identifiant utilisateur, aucun cookie, aucune donnée personnelle n'est
-  transmis. Les tuiles téléchargées sont mises en cache localement pour
-  un usage hors-ligne ultérieur.
-</p>
-<p>
-  Pour plus d'informations, consultez la politique de confidentialité
-  d'OpenStreetMap : <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">wiki.osmfoundation.org/wiki/Privacy_Policy</a>.
+  Pour plus d'informations, consultez les politiques de confidentialité de ces services :
+  <a href="https://geoservices.ign.fr/cgu-licences">IGN</a>,
+  <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap</a>,
+  <a href="https://www.esri.com/fr-fr/privacy/overview">Esri</a>,
+  <a href="https://policies.google.com/privacy">Google</a>.
 </p>
 <h2>Partage initié par l'utilisateur</h2>
 <p>
@@ -265,7 +307,7 @@
   données vers l'extérieur :
 </p>
 <ul>
-  <li><strong>Export de traces</strong> aux formats GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ (modèle 3D) ou <code>.subterra</code> (format natif), transmis via le sélecteur de partage Android (mail, cloud personnel, autre application).</li>
+  <li><strong>Export de traces</strong> aux formats GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ (modèle 3D), relevé topographique (Survex, Therion, Compass, VisualTopo) ou <code>.subterra</code> (format natif), ainsi que des images et vidéos de la vue éclatée, transmis via le sélecteur de partage Android (mail, cloud personnel, autre application) ou enregistrés dans les dossiers Images, Films et Documents. Selon les options choisies, ces fichiers peuvent contenir les coordonnées GPS de l'entrée, les photos, les notes et votre pseudo ; les rapports PDF et PNG proposent de masquer les informations sensibles.</li>
   <li><strong>SMS de notification de session</strong> à un contact de votre choix : l'application SMS native de votre téléphone s'ouvre avec le message pré-rédigé (heure prévue de retour et, si disponible, position GPS du point d'entrée) ; vous validez l'envoi vous-même.</li>
 </ul>
 <p>
@@ -273,12 +315,23 @@
   n'en conserve aucune copie. Les destinataires et les modalités du
   partage sont entièrement sous votre contrôle.
 </p>
+<h2>Subterra Desktop</h2>
+<p>
+  Le logiciel Subterra Desktop, qui permet d'ouvrir et de modifier une session
+  <code>.subterra</code> sur un ordinateur Windows, suit les mêmes principes :
+  aucun compte, aucun serveur de l'éditeur, aucune donnée transmise à l'éditeur.
+  Il contacte l'IGN et OpenStreetMap pour le plan de situation du rapport et la
+  vue éclatée, dans les mêmes conditions que l'Application, et garde ces données
+  en cache sur l'ordinateur. Votre travail en cours est conservé localement afin
+  de pouvoir être repris après un arrêt inattendu du logiciel.
+</p>
 <h2>Rapports de plantage</h2>
 <p>
   Lorsque l'Application rencontre un plantage technique, un rapport
   anonymisé peut être transmis à Google par le système Play Store. Ces
   rapports sont gérés par Google selon ses propres politiques et permettent
-  à l'éditeur d'identifier et corriger les bugs.
+  à l'éditeur d'identifier et corriger les bugs. L'Application n'intègre
+  elle-même aucun outil de rapport de plantage.
 </p>
 <p>
   Ces rapports ne contiennent <strong>aucune donnée personnelle, aucune
@@ -290,12 +343,14 @@
 <p>
   Les données stockées localement bénéficient des protections natives du
   système Android (stockage privé de l'application, accessible uniquement
-  par l'Application elle-même).
+  par l'Application elle-même). Font exception les fichiers que vous exportez
+  et les sauvegardes automatiques, placés dans le stockage partagé du téléphone
+  (voir section « Sauvegardes »).
 </p>
 <p>
-  Les communications réseau effectuées par l'Application (tuiles OSM,
-  rapports de plantage via Play Store) utilisent le protocole HTTPS, garantissant
-  un chiffrement des échanges.
+  Les communications réseau effectuées par l'Application (fonds de carte et
+  données géographiques, rapports de plantage via Play Store) utilisent le
+  protocole HTTPS, garantissant un chiffrement des échanges.
 </p>
 <h2>Droits de l'utilisateur (RGPD)</h2>
 <p>
@@ -305,13 +360,15 @@
 <ul>
   <li><strong>Accès</strong> — toutes vos données sont consultables directement dans l'Application.</li>
   <li><strong>Modification</strong> — vous pouvez éditer ou supprimer vos traces, waypoints, zones et photos à tout moment.</li>
-  <li><strong>Suppression</strong> — la désinstallation de l'Application efface l'intégralité des données associées.</li>
-  <li><strong>Portabilité</strong> — vous pouvez exporter vos données aux formats standards GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ.</li>
+  <li><strong>Suppression</strong> — supprimer une session efface aussi ses photos ; la désinstallation de l'Application efface l'intégralité des données de son stockage privé. Les fichiers exportés et le dossier <code>Documents/SubterraProject/Sauvegardes</code> sont conservés et peuvent être supprimés depuis le gestionnaire de fichiers du téléphone.</li>
+  <li><strong>Portabilité</strong> — vous pouvez exporter vos données aux formats standards GeoJSON, KML/KMZ, SVG, PNG, PDF, OBJ et aux formats de topographie.</li>
 </ul>
 <p>
   L'éditeur ne détenant aucune donnée personnelle de votre part, les
   demandes habituelles d'accès, de rectification ou de suppression auprès
-  de l'éditeur sont sans objet.
+  de l'éditeur sont sans objet. Vous pouvez toutefois poser toute question
+  à l'adresse ci-dessous, et adresser une réclamation à la CNIL
+  (<a href="https://www.cnil.fr">www.cnil.fr</a>).
 </p>
 <h2>Modifications de la politique</h2>
 <p>
@@ -332,7 +389,7 @@
   <strong>Éditeur</strong> &nbsp;·&nbsp; La Voix du Passé
 </div>
 <footer>
-  La Voix du Passé · Document hébergé · Mise à jour 24/05/2026
+  La Voix du Passé · Document hébergé · Mise à jour 20/11/2026
 </footer>
 </body>
 </html>
